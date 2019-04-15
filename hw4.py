@@ -69,9 +69,10 @@ def loss(data, label, W1, W2):
 		for j in range(len(output)):
 			if j == label[i]:
 				result += math.log(output[j])
+			'''
 			else:
 				result += math.log(1 - output[j])
-
+			'''
 	result = result / (len(data)) * -1
 	return result
 
@@ -85,10 +86,13 @@ if __name__ == "__main__":
 	W1 = np.genfromtxt('ps5_theta1.csv',delimiter=',')
 	W2 = np.genfromtxt('ps5_theta2.csv',delimiter=',')
 	print(X.shape, y.shape, W1.shape, W2.shape)
+	
 	error_rate, result = err_rate(X,y,W1,W2)
-	print(result)
-	#print(err_rate (X, y, W1, W2))
-	#print(loss(X,y,W1,W2))
+	print(error_rate)
+	print(loss(X,y,W1,W2))
+	
+	
+	
 	
 
 

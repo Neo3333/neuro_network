@@ -12,6 +12,10 @@ def input_to_hidden(input_vector, weight_vector):
 	bias_input_vector = np.array(input_list)
 	bias_input_vector = np.matrix(bias_input_vector)
 	result = bias_input_vector * weight_vector.T
+	result = np.array(result).reshape(-1)
+	#print(len(result))
+	for i in range(len(result)):
+		result[i] = sigmoid(result[i])
 	return result
 
 def softmax(input_vector):
@@ -73,7 +77,7 @@ if __name__ == "__main__":
 	print(output)
 	'''
 	error_rate, result = err_rate(X,y,W1,W2)
-	print(result)
+	print(error_rate)
 
 
 
